@@ -13,9 +13,9 @@ module.exports = {
     const moduleConfig = {
       name: "next1",
       remotes: {
-        next2: `next2@http://localhost:3001/_next/static/${
-          isServer ? "ssr" : "chunks"
-        }/remoteEntry.js`,
+        next2: `next2@${
+          process.env.NEXT_PUBLIC_EXPORT_COMPONENT_URL
+        }/_next/static/${isServer ? "ssr" : "chunks"}/remoteEntry.js`,
       },
       filename: "static/chunks/remoteEntry.js",
       exposes: {
