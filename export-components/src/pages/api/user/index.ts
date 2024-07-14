@@ -21,7 +21,7 @@ const cors = Cors({
 })
 
 // ミドルウェアのラッパー関数
-function runMiddleware(req, res, fn) {
+function runMiddleware(req: NextApiRequest, res: NextApiResponse, fn: typeof cors) {
   return new Promise((resolve, reject) => {
     fn(req, res, (result) => {
       if (result instanceof Error) {
