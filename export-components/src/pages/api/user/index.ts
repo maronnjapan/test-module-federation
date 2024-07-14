@@ -11,23 +11,23 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  await runMiddleware(req, res, cors)
+  // await runMiddleware(req, res, cors)
   res.status(200).json({ name: "John Doe", consumes: {} });
 }
 
 
-const cors = Cors({
-  methods: ['GET', 'HEAD'],
-})
+// const cors = Cors({
+//   methods: ['GET', 'HEAD'],
+// })
 
 // ミドルウェアのラッパー関数
-function runMiddleware(req: NextApiRequest, res: NextApiResponse, fn: typeof cors) {
-  return new Promise((resolve, reject) => {
-    fn(req, res, (result) => {
-      if (result instanceof Error) {
-        return reject(result)
-      }
-      return resolve(result)
-    })
-  })
-}
+// function runMiddleware(req: NextApiRequest, res: NextApiResponse, fn: typeof cors) {
+//   return new Promise((resolve, reject) => {
+//     fn(req, res, (result) => {
+//       if (result instanceof Error) {
+//         return reject(result)
+//       }
+//       return resolve(result)
+//     })
+//   })
+// }
